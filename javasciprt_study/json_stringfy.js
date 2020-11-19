@@ -8,3 +8,4 @@ const userList = [
 fs.writeFile('./list.json', JSON.stringify(userList), (err) =>{
     if(err) throw err;
 });
+

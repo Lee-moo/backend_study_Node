@@ -5,9 +5,7 @@ const url = require('url');
 http.createServer((request, response) =>{
     let pathname = url.parse(request.url);
     pathname =  url.parse(request.url).pathname;
-  //  console.log(request.url); // c
-   // console.log(url.parse(request.url)); // c
-    console.log(pathname);  // c 
+
 
     if(pathname === '/'){
         fs.readFile('./138_index.html', (error, data)=>{
