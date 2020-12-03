@@ -14,7 +14,7 @@
 
     <script>
         var xhr = new XMLHttpRequest(); // 오브젝트 생성 
-//XMLHttpRequest 객체는 상태정볼르 가지고 있는데 readyState 속성이 그 값을 가지고 있다.
+//XMLHttpRequest 객체는 상태정보를 가지고 있는데 readyState 속성이 그 값을 가지고 있다.
 //0~4까지의 상태 정볼르 가지고 있다. 
 /*
 0(xhr.UNSENT, 보내지 않음)이었다가, open 메소드를 호출하는 순간 1(xhr.OPENED)로 바뀝니다. 
@@ -35,6 +35,8 @@
         xhr.send(); //send()를 통해서 request를 보낸다. 
     </script>
 
+
+<!-- post시 xmlhttprequest -->
    <script>
        var xhr = new XMLHttpRequest();
        var data = {
