@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    XMLHttpRequest는 HTTP를 통해서 쉽게 데이털르 받을 수 있게 해주는
+    오브젝트를 제공.
+
+ -->
+
+    <script>
+        var xhr = new XMLHttpRequest(); // 오브젝트 생성 
+//XMLHttpRequest 객체는 상태정볼르 가지고 있는데 readyState 속성이 그 값을 가지고 있다.
+//0~4까지의 상태 정볼르 가지고 있다. 
+/*
+0(xhr.UNSENT, 보내지 않음)이었다가, open 메소드를 호출하는 순간 1(xhr.OPENED)로 바뀝니다. 
+그리고 send 시 순차적으로 2(xhr.HEADERS_RECEIVED),
+ 3(xhr.LOADING), 4(xhr.DONE)로 바뀝니다.
+*/
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === xhr.DONE) {
+                if(xhr.status === 200 || xhr.status === 201) {
+                    console.log(xhr.responseText);
+                }else {
+                    console.error(xhr.responseText);
+                }
+            }
+        };
+        //open()을 이용해 메소드 방식, url, 비동기 여부를 설정
+        xhr.open('GET','https://www.zerocho.com/api/get');
+        xhr.send(); //send()를 통해서 request를 보낸다. 
+    </script>
+
+   <script>
+       var xhr = new XMLHttpRequest();
+       var data = {
+           name : 'zerocho',
+           birth : 1994,
+       };
+       xhr.onreadystatechange = function() {
+           if(xhr.readyState === xhr.DONE) {
+               if(xhr.status === 200 || xhr.status === 201){
+                   console.log(xhr.responseText);
+               }else {
+                   console.log(xhr.responseText);
+               }
+           }
+       };
+       xhr.open('POST','https://www.zerocho.com/api/pose/json');
+       xhr.setRequestHeader('Content-Type :','application/json');
+       xhr.send(JSON.stringify(data));
+   </script> 
+</body>
+</html>

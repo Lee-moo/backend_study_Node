@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//http form 태그의 데이터를 동적으로 제어할 수 있는 기능이다.
+//주로 AJAX와 함께 사용된다.
+        var formdata = new FormData();
+        formData.append('name','zerocho');
+        formData.append('item','orange');
+        fromData.append('item','melon');
+        formData.has('item'); //true
+        fromData.has('money');
+        fromData.get('item');
+        fromData.getAll('item');
+        fromData.append('test',['hi','zero']);
+        fromData.get('test');
+        fromData.delete('test');
+        fromData.set('item','apple');
+//append 메소드로 키-값 형식의 데이터를 저장할 수 있다.
+//has 메소드는 주어진 키에 해당하는 값이 있는지 여부를 반환
+//get 메소드는 주어진 키에 대항하는 값 하나를 가져온다.
+//getAll 메소드는 해당한느 모든 값을 가져온다.브라우져 API 공부 (DOM API)
+//delete는 현재 키를 제거
+//set은 현재 키를 수정하는 메소드이다.
+    </script>
+</body>
+</html>
