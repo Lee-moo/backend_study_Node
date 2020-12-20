@@ -3,12 +3,13 @@ const fs = require('fs').promises;
 
 const users = {}; // 데이터 저장용
 
-http.createServer(async (req, res) => {
+http.createServer(async (req, res) => { // req = request, res = response
   try {
     if (req.method === 'GET') {
       if (req.url === '/') {
         const data = await fs.readFile('./restFront.html');
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        //200 : request 성공 , writehead - 헤더 입력 
         return res.end(data);
       } else if (req.url === '/about') {
         const data = await fs.readFile('./about.html');
@@ -64,7 +65,7 @@ http.createServer(async (req, res) => {
         return res.end('ok');
       }
     }
-    res.writeHead(404);
+    res.writeHead(404); //404는 요청에 대한 정보를 찾지 못했을 때 
     return res.end('NOT FOUND');
   } catch (err) {
     console.error(err);
