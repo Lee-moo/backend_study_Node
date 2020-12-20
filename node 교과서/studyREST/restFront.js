@@ -48,10 +48,10 @@ async function getUser() { // 로딩 시 사용자 가져오는 함수
   window.onload = getUser; // 화면 로딩 시 getUser 호출
   // 폼 제출(submit) 시 실행
   document.getElementById('form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // event is prevented default behavior
     const name = e.target.username.value;
     if (!name) {
-      return alert('이름을 입력하세요');
+     return alert('이름을 입력하세요');
     }
     try {
       await axios.post('/user', { name });
@@ -62,3 +62,8 @@ async function getUser() { // 로딩 시 사용자 가져오는 함수
     e.target.username.value = '';
   });
   
+
+  /*
+  Object.keys The Object.keys() method returns an array of a given object's own enumerable property names,
+   iterated in the same order that a normal loop would.
+   */
