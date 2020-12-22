@@ -21,9 +21,14 @@ app.use((req,res,next)=>{
     console.log('2. 모든 요청에 실행');
     next();
 }, (req,res,next)=>{
-    console.log('3. 모든 요청에 실행');
+   // console.log('3. 모든 요청에 실행');
    // throw new Error('error'); express 기본 제공 에러 처리 
-   next();
+   //next();
+   try {
+       console.log(에러);
+   }catch(error) {
+       next(error); //에러 미들웨어로 넘어간다. 
+   }
 });
 
 
@@ -74,4 +79,3 @@ app.listen(app.get('port'), ()=>{
 // // app.get('/category/javascript', (req,res)=>{
 // //     res.send(`hello javascript !! `);
 // // });
-
