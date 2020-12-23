@@ -8,6 +8,7 @@ router.route('/')
   .get(async (req, res, next) => {
     try {
       const users = await User.findAll();
+      //페이지를 보내는 게 아니면 거의 다 json을 보낸다.
       res.json(users);
     } catch (err) {
       console.error(err);

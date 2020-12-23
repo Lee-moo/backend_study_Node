@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
-const nunjucks = require('nunjucks');
+const morgan = require('morgan'); //for logging
+const nunjucks = require('nunjucks'); // for template
 
 const { sequelize } = require('./models');
 const indexRouter = require('./routes');
@@ -10,11 +10,15 @@ const commentsRouter = require('./routes/comments');
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
+
+//for setting nunjucks
 app.set('view engine', 'html');
 nunjucks.configure('views', {
   express: app,
   watch: true,
 });
+
+// for connecting database ?? 
 sequelize.sync({ force: false })
   .then(() => {
     console.log('데이터베이스 연결 성공');
@@ -25,6 +29,7 @@ sequelize.sync({ force: false })
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
+// body parser 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
