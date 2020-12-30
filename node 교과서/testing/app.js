@@ -1,3 +1,4 @@
+//start와 test는 유명해서 그냥 npm start, npm test만 해도 된다.
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -72,8 +73,10 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-app.listen(app.get('port'), () => {
-    console.log(app.get('port'), '번 포트에서 대기중');
-});
+// app.listen(app.get('port'), () => {
+//     console.log(app.get('port'), '번 포트에서 대기중');
+// });
+
+module.exports = app;
 
 //sequelize include, 메소드들 

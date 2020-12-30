@@ -20,7 +20,6 @@ app.use(session({
     secret : process.env.COOKIE_SECRET,
     cookie : {
         httpOnly : true,
-
     },
     name : 'connect-sid', // ?? 서명되서 읽을 수 없는 문자열로 바뀐다.
 }));
